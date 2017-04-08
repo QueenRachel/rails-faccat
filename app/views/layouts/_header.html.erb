@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+	  <%= link_to 'Meu site', root_path, class: 'navbar-brand' %>
+
+	  <ul class="nav navbar-nav navbar-right">
+	  	<% if admin_signed_in? %>
+		<li>
+			<%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+			
+		</li>
+		<% else %>
+		<li>
+			<%= link_to 'Entrar', new_admin_session_path %>
+		</li>
+		<% end %>
+
+	  </ul>
+  </div>
+</nav>
