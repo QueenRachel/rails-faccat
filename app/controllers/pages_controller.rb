@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_admin!, except: [:show, :homepage]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-
   # GET /pages
   def index
     @pages = Page.all
@@ -50,6 +49,10 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find_by(slug: params[:id])
+    end
+
+    def set_header_pages
+      @pages_header = Page.all
     end
 
     # Only allow a trusted parameter "white list" through.
